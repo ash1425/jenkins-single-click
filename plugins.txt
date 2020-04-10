@@ -1,0 +1,9 @@
+workflow-aggregator
+credentials-binding
+git
+workflow-job
+blueocean
+job-dsl
+sonar
+jacoco
+configuration-as-code

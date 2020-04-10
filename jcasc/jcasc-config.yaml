@@ -1,0 +1,26 @@
+jenkins:
+    systemMessage: Configured and managed 'as code'
+tool:
+    git:
+        installations:
+            - home: "git"
+              name: "Default"
+    maven:
+        installations:
+            - name: "Maven 3"
+              properties:
+                  - installSource:
+                        installers:
+                            - maven:
+                                  id: "3.6.3
+jobs:
+    - script: >
+          multibranchPipelineJob('Java Spring boot gradle') {
+              branchSources {
+                  git {
+                      id('jenkins-test-pipeline')
+                      remote('http://host.docker.internal:3000/ashay/simple-boot-app.git')
+                      credentialsId('local-git')
+                  }
+              }
+          }
